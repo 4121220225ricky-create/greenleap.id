@@ -448,7 +448,7 @@ footer a:hover{color:#fff}
   <div style="overflow-x:auto"><table class="etbl"><thead>
     <tr><th>Negara</th><th>2012</th><th>2018</th><th>2024</th><th>Δ 2012–2024</th><th>Tren</th></tr>
   </thead><tbody id="eciT"></tbody></table></div>
-  <div class="src">Sumber: <a href="https://oec.world/en/rankings/eci/hs6/hs96" target="_blank">OEC ECI Rankings hs6/hs96</a></div>
+  <div class="src">Sumber: <a href="https://atlas.hks.harvard.edu/rankings" target="_blank">Atlas of Economic Complexity – ECI Rankings (Harvard)</a></div>
 </div>
 
 <!-- TREEMAP + STACKED -->
@@ -490,7 +490,7 @@ footer a:hover{color:#fff}
 <div class="cw" style="margin-top:1.2rem">
   <div class="ch"><span class="ct">ECI vs Rata-rata Pertumbuhan GDP, ASEAN+</span></div>
   <div class="bars" id="gdpB"></div>
-  <div class="src">Sumber: <a href="https://oec.world/en/resources/methods/eci-growth-predictions" target="_blank">OEC Growth Forecasts</a> | Hidalgo & Hausmann, PNAS (2009)</div>
+  <div class="src">Sumber: <a href="https://atlas.hks.harvard.edu/rankings" target="_blank">Atlas of Economic Complexity – ECI Rankings (Harvard)</a> | </div>
 </div>
 
 </div>
@@ -641,7 +641,7 @@ footer a:hover{color:#fff}
     <!-- INDONESIA (big, red) --><rect x="258" y="335" width="258" height="95" rx="7" fill="#A93226" stroke="#F0B429" stroke-width="3" onclick="toast('Indonesia: ECI Rank #55 — Stagnan 24 tahun!','e')"/><text x="387" y="372" text-anchor="middle" font-family="Arial" font-size="14" font-weight="900" fill="#fff">Indonesia</text><text x="387" y="388" text-anchor="middle" font-family="Arial" font-size="10" fill="#F0B429">#55 — Stagnan 24 Tahun ★</text>
     <!-- Legend -->
   </svg>
-  <div class="src">Sumber: <a href="https://oec.world/en/visualize/geomap" target="_blank">OEC Geo Map</a> | Klik negara untuk info</div>
+  <div class="src">Sumber: <a href="https://atlas.hks.harvard.edu/rankings" target="_blank">Atlas of Economic Complexity – ECI Rankings (Harvard)</a> | Klik negara untuk info</div>
 </div>
 
 </div>
@@ -785,7 +785,7 @@ footer a:hover{color:#fff}
     <div style="display:flex;gap:8px;align-items:flex-end;height:75px;margin-top:.85rem">
       <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
         <div id="tbC" style="width:48px;background:var(--a);border-radius:4px 4px 0 0;transition:height .6s ease"></div>
-        <small style="font-size:.7rem;color:var(--muted)">Saat Ini</small>
+        <small style="font-size:.7rem;color:var(--muted)">Q1 2026/small>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">
         <div id="tbP" style="width:48px;background:var(--r);border-radius:4px 4px 0 0;transition:height .6s ease"></div>
@@ -873,7 +873,7 @@ footer a:hover{color:#fff}
         <div><div style="font-size:1.15rem;font-weight:800;color:#27ae60">+0.03</div><div style="font-size:.72rem;color:var(--muted)">vs Q4 2025</div></div>
       </div>
     </div>
-    <p style="font-size:.79rem;color:var(--muted);margin-top:.55rem;line-height:1.6">PSNI mengukur kedekatan ekspor Indonesia ke produk-produk target. Skala 0–1, diperbarui kuartalan oleh COI berbasis data OEC.</p>
+    <p style="font-size:.79rem;color:var(--muted);margin-top:.55rem;line-height:1.6">PSNI mengukur kedekatan ekspor Indonesia ke produk-produk target. Skala 0–1, diperbarui kuartalan oleh COI berbasis Atlas Harvard.</p>
   </div>
   <div class="coic">
     <h3>Pembaruan Kebijakan COI</h3>
@@ -1251,7 +1251,7 @@ function buildYIF(){
   document.getElementById('yPie').innerHTML=items.map(it=>`
     <div class="skrow"><span class="sklbl" style="width:auto;min-width:0;font-size:.78rem;flex:1">${it.l}</span>
     <div style="width:140px;background:var(--bdr);height:22px;border-radius:3px;overflow:hidden;margin-left:.5rem">
-      <div style="height:100%;background:${it.c};width:${Math.round(it.v/5000*100)}%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;font-weight:700">IDR ${it.v}M</div>
+      <div style="height:100%;background:${it.c};width:${Math.round(it.v/5000*100)}%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;font-weight:700">${it.v/1000}T</div>
     </div></div>`).join('');
   // Geo bar
   const gd=[{l:'Jawa',v:141,c:'#A93226'},{l:'Sumatera',v:52,c:'#C0562A'},{l:'Kalimantan',v:28,c:'#D4880A'},{l:'Sulawesi',v:18,c:'#E8A210'},{l:'Maluku/Papua',v:5,c:'#27ae60'},{l:'Nusa Tenggara',v:3,c:'#3498db'}];
@@ -1269,7 +1269,7 @@ function buildCOI(){
       <span class="tbg ${t.st==='on'?'ton':t.st==='prog'?'tpr':'tpl'}">${t.st==='on'?'Aktif':t.st==='prog'?'Proses':'Direncanakan'}</span>
     </div>`).join('');
   // ECI bar chart
-  const pts=[{yr:'2000',r:55,tgt:false},{yr:'2010',r:56,tgt:false},{yr:'2020',r:55,tgt:false},{yr:'2024',r:55,tgt:false},{yr:'2027',r:52,tgt:true},{yr:'2030',r:46,tgt:true},{yr:'2035',r:40,tgt:true}];
+  const pts=[{yr:'2012',r:67,tgt:false},{yr:'2018',r:60,tgt:false},{yr:'2024',r:69,tgt:false},{yr:'2027',r:65,tgt:true},{yr:'2030',r:57,tgt:true},{yr:'2035',r:50,tgt:true}];
   const mx=60;
   document.getElementById('coiB').innerHTML=pts.map(p=>`<div class="bcol">
     <div class="bbar" style="height:${Math.round((1-p.r/mx)*135)+8}px;background:${p.tgt?'rgba(39,174,96,.55)':'#A93226'};border:${p.tgt?'2px dashed #27ae60':''};min-height:5px" data-v="${p.yr}: #${p.r}${p.tgt?' (target)':''}"></div>
