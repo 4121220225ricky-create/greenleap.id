@@ -446,7 +446,7 @@ footer a:hover{color:#fff}
     </div>
   </div>
   <div style="overflow-x:auto"><table class="etbl"><thead>
-    <tr><th>Negara</th><th>2000</th><th>2012</th><th>2018</th><th>2024</th><th>Δ 24 Thn</th><th>Tren</th></tr>
+    <tr><th>Negara</th><th>2012</th><th>2018</th><th>2024</th><th>Δ 2012–2024</th><th>Tren</th></tr>
   </thead><tbody id="eciT"></tbody></table></div>
   <div class="src">Sumber: <a href="https://oec.world/en/rankings/eci/hs6/hs96" target="_blank">OEC ECI Rankings hs6/hs96</a></div>
 </div>
@@ -965,14 +965,14 @@ footer a:hover{color:#fff}
 <script>
 // ─── ALL DATA ─────────────────────────────────────────────────
 const ECI_D={
-  'Indonesia':   {r:[55,56,55,55],c:'#A93226',asean:true},
-  'Vietnam':     {r:[89,67,50,47],c:'#E8A210',asean:true},
-  'Malaysia':    {r:[48,40,31,28],c:'#3498db',asean:true},
-  'Thailand':    {r:[53,46,39,37],c:'#27ae60',asean:true},
-  'Singapura':   {r:[25,20,19,21],c:'#1abc9c',asean:true},
-  'Korea Selatan':{r:[12,8,5,4],c:'#9b59b6',asean:false},
-  'Jepang':      {r:[1,1,1,1],c:'#C0562A',asean:false},
-  'Jerman':      {r:[4,3,3,3],c:'#7B241C',asean:false},
+  'Indonesia':   {r:[67,60,69],c:'#A93226',asean:true},
+  'Vietnam':     {r:[65,56,45],c:'#E8A210',asean:true},
+  'Malaysia':    {r:[31,28,32],c:'#3498db',asean:true},
+  'Thailand':    {r:[38,32,34],c:'#27ae60',asean:true},
+  'Singapura':   {r:[9,5,5],c:'#1abc9c',asean:true},
+  'Korea Selatan':{r:[8,5,4],c:'#9b59b6',asean:false},
+  'Jepang':      {r:[1,1,1],c:'#C0562A',asean:false},
+  'Jerman':      {r:[3,3,3],c:'#7B241C',asean:false},
 };
 const TM_D={
   '2024':[[32,'Komoditas Mentah','PCI<0','#A93226'],[27,'Manufaktur Dasar','PCI 0–0.5','#C0562A'],[20,'Menengah','PCI 0.5–1','#D4880A'],[21,'Kompleks','PCI>1','#E8A210']],
@@ -1148,14 +1148,14 @@ function toggleDk(){
 function buildECI(filter){
   const rows=Object.entries(ECI_D).filter(([,v])=>filter==='asean'?v.asean:true);
   document.getElementById('eciT').innerHTML=rows.map(([n,d])=>{
-    const [r0,r1,r2,r3]=d.r,delta=r0-r3;
+    const [r0,r1,r2]=d.r,delta=r0-r2;
     const dTx=delta>0?`▲ +${delta}`:delta<0?`▼ ${delta}`:'→ 0';
     const dCl=delta>10?'#27ae60':delta>0?'#E8A210':delta<0?'#A93226':'#888';
-    const bw=Math.max(0,Math.round((1-r3/100)*150));
+    const bw=Math.max(0,Math.round((1-r2/100)*150));
     const idn=n==='Indonesia';
     return `<tr class="${idn?'eidn':''}">
       <td><span style="color:${d.c}">●</span> ${idn?'<strong>'+n+'</strong>':n}</td>
-      <td>#${r0}</td><td>#${r1}</td><td>#${r2}</td><td><strong>#${r3}</strong></td>
+      <td>#${r0}</td><td>#${r1}</td><td><strong>#${r2}</strong></td>
       <td style="color:${dCl};font-weight:700">${dTx}</td>
       <td><span class="rbar" style="width:${bw}px;background:${idn?'#A93226':d.c}"></span></td>
     </tr>`;
